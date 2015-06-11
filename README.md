@@ -69,9 +69,3 @@ The `nilsimsa` module is released under version 2.0 of the
 * https://code.google.com/p/py-nilsimsa/
 * http://en.wikipedia.org/wiki/Locality-sensitive_hashing
 * http://en.wikipedia.org/wiki/Nilsimsa_Hash
-
-##Contributors
-* Ray Holder
-* Michael Itz
-* cmeclax
-
