@@ -34,14 +34,23 @@ compile "com.github.rholder:nilsimsa:1.0.0"
 A minimal sample of some of the functionality would look like:
 
 ```java
-String first  = new Nilsimsa().update("potatoes are the best".getBytes()).toHexDigest();
-String second = new Nilsimsa().update("tomatoes are really the best".getBytes()).toHexDigest();
-String third  = new Nilsimsa().update("bananas taste pretty good".getBytes()).toHexDigest();
+String first  = "potatoes are the best";
+String second = "tomatoes are really the best";
+String third  = "bananas taste pretty good";
 
-System.out.println(Nilsimsa.compare(first, third));   //   3
-System.out.println(Nilsimsa.compare(second, third));  //  -6
-System.out.println(Nilsimsa.compare(first, second));  //  53 -- closest match
-System.out.println(Nilsimsa.compare(first, first));   // 128 -- exact match
+System.out.println(NilsimsaStringComparisons.compare(first, third));   //   3
+System.out.println(NilsimsaStringComparisons.compare(second, third));  //  -6
+System.out.println(NilsimsaStringComparisons.compare(first, second));  //  53 -- closest match
+System.out.println(NilsimsaStringComparisons.compare(first, first));   // 128 -- exact match
+```
+
+You can also compare blobs of things as a set.
+
+```java
+String first  = "potatoes are the best";
+String second = "are potatoes the best";
+
+System.out.println(NilsimsaStringComparisons.compare(first, second));   // 128
 ```
 
 ##Building from source
