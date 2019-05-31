@@ -128,12 +128,25 @@ public class Nilsimsa {
      * @return this instance for chaining
      */
     public Nilsimsa update(byte[] data) {
+        return update(data, 0, data.length);
+    }
+    
+    /**
+     * Update accumulators for 0-8 trigrams based on the next character in the
+     * array and up to 4 of the previously seen characters.
+     *
+     * @param buffer input data buffer for the hash
+     * @param offset the offset of the data in the buffer
+     * @param len the length of data in the buffer
+     * @return this instance for chaining
+     */
+    public Nilsimsa update(byte[] buffer, int offset, int len) {
 
         // increment accumulators for trigrams
-        for (byte character : data) {
+        for (int i = 0; i < len; ++i) {
 
             // remove signage, just in case
-            int ch = character & 0xFF;
+            int ch = buffer[offset++] & 0xFF;
             count++;
 
             if (window[1] > -1) {
